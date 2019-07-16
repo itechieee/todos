@@ -1,24 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function TodoForm(props) {
+class TodoForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+            todoError :'Todo cannot be empty',
+            todoData: ''
+          }
+          this.handleSubmit = this.handleSubmit.bind(this);
+          this.handleChange = this.handleChange.bind(this);
+  }
 
-  function handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();    
-    if(document.getElementById('todo').value === '') {
-        document.getElementById('todoError').value = 'Should not be empty';
+    if(this.state.todoData === '') {
+      this.setState({ todoError:'Todo cannot be empty' });
     } else {
-        console.log(document.getElementById('todo').value);
-        document.getElementById('todo').value = '';
-        document.getElementById('todoError').innerText = '';
+        this.props.add(this.state.todoData);
+        this.setState({ 
+          todoError:'',
+          todoData: ''
+        });
     }
   }
-  return (
-      <form onSubmit={handleSubmit}>
-        <label> Name: <input id="todo" type="text" name="name" /> </label>
-        <input type="submit" value="Submit" />
-        <span id="todoError"></span>
-      </form>
-  );
+
+  handleChange(e) {
+    this.setState({
+      todoData: e.target.value,
+      todoError: ''
+    })
+  }
+
+  render() {
+    const {todoData, todoError} = this.state;
+    return (
+          <form onSubmit={this.handleSubmit}>
+            <label> Name: <input id="todo" type="text" name="name" value={todoData} onChange={this.handleChange} /> </label>
+            <input type="submit" value="Submit" />
+            <span> {todoError} </span>
+          </form>
+      );
+  }
+  
 }
 
 export default TodoForm;
