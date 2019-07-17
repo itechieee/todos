@@ -6,9 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import {createStore} from 'redux';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
+import Todo from './models/todo';
 
-
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, {
+    todos:[
+        new Todo(1, 'test')
+    ]
+});
 
 ReactDOM.render(
     <Provider store={store}>

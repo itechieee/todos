@@ -1,11 +1,11 @@
 import { ADD_TODO, REMOVE_TODO } from '../actions/todoAction';
 import Todo from '../models/todo';
 
-function todoReducer(state = [], action) {
+function todoReducer(state = [], action) {  
   switch(action.type) {
       case ADD_TODO:
         const newTodo = new Todo(
-          state.todo.length + 1,
+          state.length + 1,
           action.todoTitle
         );
 
@@ -20,3 +20,5 @@ function todoReducer(state = [], action) {
         return state;
   }
 }
+
+export default todoReducer;

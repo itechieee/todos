@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { removeTodo } from '../../../../actions/todoAction';
 
-function TodoItem(props) {
-  const { todo } = props;
-  return (
-    <div>
-      <div>
-          { todo.title }
-          <input type="button" value="x" />
-      </div>      
-    </div>
-    
-  );
+class TodoItem extends Component {
+  handleDelete = (e) => {
+    const { todo } = this.props;
+    this.props.remove(todo.id);
+  }
+  render() {  
+      const { todo } = this.props;
+      return (
+        <div>
+          <div>
+              { todo.title }
+              <input type="button" value="x" onClick={this.handleDelete} />
+          </div>      
+        </div>
+        
+      )
+  }
 }
 
-export default TodoItem;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    remove: (id) => {
+      dispatch(removeTodo(id))
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(TodoItem);
