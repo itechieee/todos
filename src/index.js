@@ -8,6 +8,7 @@ import rootReducer from './reducers';
 import { Provider } from 'react-redux';
 import Todo from './models/todo';
 import  thunk  from 'redux-thunk';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const store = createStore(rootReducer, {
     todos:[

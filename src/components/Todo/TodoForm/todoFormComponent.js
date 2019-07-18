@@ -36,11 +36,15 @@ class TodoForm extends Component {
   render() {
     const {todoData, todoError} = this.state;
     return (
-          <form onSubmit={this.handleSubmit}>
-            <label> Name: <input id="todo" type="text" name="name" value={todoData} onChange={this.handleChange} /> </label>
-            <input type="submit" value="Submit" />
-            <span> {todoError} </span>
-          </form>
+      <div className="search">
+        <h1>Ezy Do</h1>
+        <form onSubmit={this.handleSubmit} className="form-inline" action="">
+          <input  onChange={this.handleChange}  id="todo" type="text" value={todoData} className="form-control" name="title" placeholder="Remember to ..." required />
+          <button type="submit" value="Submit" style={{ color: '#fff' }} type="submit" className="btn"><i className="fas fa-plus"></i></button>
+        </form>
+        <span> {todoError} </span>
+      </div>
+       
       );
   }
   

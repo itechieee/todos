@@ -10,13 +10,12 @@ class TodoItem extends Component {
   render() {  
       const { todo } = this.props;
       return (
-        <div>
-          <div>
-              { todo.title }
-              <input type="button" value="x" onClick={this.handleDelete} />
-          </div>      
-        </div>
-        
+        <tr className="item">
+          <td> {todo.title}</td>
+          <td><button onClick={this.handleDelete} className="btn"><i style={{ color: 'white', fontSize: '1.8rem' }} className="far fa-trash-alt"></i></button></td>
+          <td><button className="btn"><i style={{ color: 'white', fontSize: '1.8rem' }} className="fas fa-pen"></i></button></td>
+          <td><button className="btn"><i style={{ color: 'white', fontSize: '1.8rem' }} className="far fa-check-circle"></i></button></td>
+        </tr>
       )
   }
 }

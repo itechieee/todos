@@ -11,3 +11,102 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-weight: 400;
+  line-height: normal;
+  font-family: 'Quicksand', sans-serif; }
+
+.App {
+  height: 100vh;
+  background: url("./background-img.png");
+  background-size: cover;
+  background-position: top; }
+
+#todo-container {
+  height: 100vh; }
+
+.todo-primary-header {
+  font-size: 10rem;
+  font-family: 'Abel', sans-serif;
+  color: #fff;
+  font-weight: 700;
+  z-index: 3; }
+
+.logo-container {
+  position: relative; }
+
+.logo {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  height: 6rem; }
+
+.form-control {
+  width: auto; }
+
+.search {
+  width: 49.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%); }
+  .search input {
+    width: 16rem;
+    height: 3rem;
+    font-size: 1.6rem; }
+  .search button {
+    padding: 0.23rem 1rem;
+    font-size: 1.6rem;
+    border-radius: .4rem;
+    background: linear-gradient(to bottom right, rgba(19, 196, 141, 0.7), #13c48d);
+    border: #13c48d 1px solid; }
+  .search h1 {
+    font-size: 12rem;
+    background: linear-gradient(to bottom right, rgba(19, 196, 141, 0.7), #13c48d);
+    background-size: cover;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-family: 'Abel', sans-serif;
+    font-weight: 700; }
+
+.items {
+  width: 49%;
+  position: absolute;
+  right: .8rem;
+  font-size: 1.6rem;
+  color: #fff;
+  top: 10%; }
+
+.item {
+  list-style: none;
+  color: #fff;
+  background: rgba(225, 225, 225, 0.3);
+  font-weight: 500; }
+  .item:not(:last-child) {
+    border-bottom: 1px solid aquamarine; }
+  .item td {
+    border: none; }
+
+tr {
+  border-bottom: 1px solid aquamarine; }
+
+.table thead th {
+  border: none; 
+  color: #fff;
+  }
+  table{
+    width: 49% !important;
+  }
+
+/*# sourceMappingURL=main.css.map */

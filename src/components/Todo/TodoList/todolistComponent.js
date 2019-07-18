@@ -18,9 +18,16 @@ class TodoList extends Component {
         )
       }
       return (
-        <div>
+        <table className="table items">
+         <thead>
+                <tr>
+                    <th scope="col">Remember to ...</th>
+                </tr>
+            </thead>
+            <tbody>
           { todos.map( todoObj =>  <TodoItem key={todoObj.id} todo={todoObj} /> ) }
-        </div>
+          </tbody>
+        </table>
       );
     }
 }
