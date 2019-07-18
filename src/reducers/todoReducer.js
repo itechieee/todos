@@ -8,13 +8,8 @@ function todoReducer(state = [], action) {
         return action.todos; 
 
       case ADD_TODO:
-        const newTodo = new Todo(
-          state.length + 1,
-          action.todoTitle
-        );
-
         return [
-          ...state, newTodo
+          ...state, action.todos
         ];
 
       case REMOVE_TODO:
